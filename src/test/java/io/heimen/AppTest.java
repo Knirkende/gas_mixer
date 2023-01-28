@@ -1,38 +1,31 @@
 package io.heimen;
 
-import junit.framework.Test;
-import junit.framework.TestCase;
-import junit.framework.TestSuite;
+import org.junit.Assert;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 
 /**
- * Unit test for simple App.
+ * Unit test for gas mixer app.
  */
-public class AppTest 
-    extends TestCase
-{
-    /**
-     * Create the test case
-     *
-     * @param testName name of the test case
-     */
-    public AppTest( String testName )
-    {
-        super( testName );
+class CalculatorTests {
+
+    @Test
+    @DisplayName("21/35, empty cylinder = {123, 77, 20}")
+    void calculatesStandardGasEmptyCylinder() {
+        GasParameter params = new GasParameter(
+                24,
+                0,
+                21,
+                35,
+                21,
+                21,
+                35,
+                220
+        );
+        GasMix gas = new GasMix(params);
+        int[] expected = {123, 77, 20};
+        int[] actual = gas.getMix();
+        Assert.assertArrayEquals(expected, actual);
     }
 
-    /**
-     * @return the suite of tests being tested
-     */
-    public static Test suite()
-    {
-        return new TestSuite( AppTest.class );
-    }
-
-    /**
-     * Rigourous Test :-)
-     */
-    public void testApp()
-    {
-        assertTrue( true );
-    }
 }
