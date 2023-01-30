@@ -1,4 +1,4 @@
-package io.heimen;
+package io.heimen.gas_mixer;
 
 import javax.swing.*;
 import java.awt.*;
@@ -25,15 +25,23 @@ class LayoutTest {
         JButton b3=new JButton("3");
         JButton b4=new JButton("4");
 
-        f.add(b1);
-        f.add(b2);
-        f.add(b3);
-        f.add(b4);
+        JPanel panelTest = new JPanel(new GridLayout(1, 2));
+        panelTest.add(b1);
+        panelTest.add(b2);
 
-        f.setLayout(new GridLayout(2,2));
+        f.add(panelTest);
+
+        f.setLayout(new GridLayout(2,1));
         f.setSize(300, 300);
         f.setVisible(true);
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
     }
 }
+
+class InputRowPanel extends JPanel {
+    public InputRowPanel() {
+        super(new GridLayout(1, 2));
+    }
+}
+

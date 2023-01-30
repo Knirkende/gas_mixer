@@ -1,4 +1,4 @@
-package io.heimen;
+package io.heimen.gas_mixer;
 
 
 record GasParameter (
