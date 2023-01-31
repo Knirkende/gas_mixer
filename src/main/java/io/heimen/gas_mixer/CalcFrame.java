@@ -48,7 +48,7 @@ public class CalcFrame extends javax.swing.JFrame {
         targetHeliumField = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
         currentMixPanel2 = new javax.swing.JPanel();
-        topMixOxygenField = new javax.swing.JTextField();
+        cylinderSizeField = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
         currentMixPanel3 = new javax.swing.JPanel();
         heliumNeededField = new javax.swing.JTextField();
@@ -66,7 +66,7 @@ public class CalcFrame extends javax.swing.JFrame {
         errorFieldTop = new javax.swing.JTextField();
         errorFieldTop1 = new javax.swing.JTextField();
         currentMixPanel4 = new javax.swing.JPanel();
-        topMixOxygenField1 = new javax.swing.JTextField();
+        topMixOxygenField = new javax.swing.JTextField();
         jLabel22 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
@@ -237,18 +237,18 @@ public class CalcFrame extends javax.swing.JFrame {
         currentMixPanel2.setPreferredSize(new java.awt.Dimension(227, 64));
         currentMixPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        topMixOxygenField.setText("24");
-        topMixOxygenField.addFocusListener(new java.awt.event.FocusAdapter() {
+        cylinderSizeField.setText("24");
+        cylinderSizeField.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
-                topMixOxygenFieldFocusLost(evt);
+                cylinderSizeFieldFocusLost(evt);
             }
         });
-        topMixOxygenField.addKeyListener(new java.awt.event.KeyAdapter() {
+        cylinderSizeField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                topMixOxygenFieldKeyReleased(evt);
+                cylinderSizeFieldKeyReleased(evt);
             }
         });
-        currentMixPanel2.add(topMixOxygenField, new org.netbeans.lib.awtextra.AbsoluteConstraints(129, 24, 54, 22));
+        currentMixPanel2.add(cylinderSizeField, new org.netbeans.lib.awtextra.AbsoluteConstraints(129, 24, 54, 22));
 
         jLabel16.setText("l");
         currentMixPanel2.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(199, 27, 17, -1));
@@ -336,18 +336,18 @@ public class CalcFrame extends javax.swing.JFrame {
         currentMixPanel4.setPreferredSize(new java.awt.Dimension(227, 64));
         currentMixPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        topMixOxygenField1.setText("21");
-        topMixOxygenField1.addFocusListener(new java.awt.event.FocusAdapter() {
+        topMixOxygenField.setText("21");
+        topMixOxygenField.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
-                topMixOxygenField1FocusLost(evt);
+                topMixOxygenFieldFocusLost(evt);
             }
         });
-        topMixOxygenField1.addKeyListener(new java.awt.event.KeyAdapter() {
+        topMixOxygenField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                topMixOxygenField1KeyReleased(evt);
+                topMixOxygenFieldKeyReleased(evt);
             }
         });
-        currentMixPanel4.add(topMixOxygenField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(129, 24, 54, 22));
+        currentMixPanel4.add(topMixOxygenField, new org.netbeans.lib.awtextra.AbsoluteConstraints(129, 24, 54, 22));
 
         jLabel22.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jLabel22.setText("Oxygen");
@@ -395,10 +395,33 @@ public class CalcFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_targetHeliumFieldActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        // collect data from all fields
-        // process data using GasMix class
-        // display result
+
+        double cylinderSize = Double.parseDouble(cylinderSizeField.getText());
+        double currentPressure = Double.parseDouble(currentPressureField.getText());
+        double currentOxygen = Double.parseDouble(currentOxygenField.getText());
+        double currentHelium = Double.parseDouble(currentHeliumField.getText());
+        double topMixOxygen = Double.parseDouble(topMixOxygenField.getText());
+
+        double targetOxygen = Double.parseDouble(targetOxygenField.getText());
+        double targetHelium = Double.parseDouble(targetHeliumField.getText());
+        double targetPressure = Double.parseDouble(targetPressureField.getText());
+
+        GasParameter params = new GasParameter(
+                cylinderSize,
+                currentPressure,
+                currentOxygen,
+                currentHelium,
+                topMixOxygen,
+                targetOxygen,
+                targetHelium,
+                targetPressure
+        );
+
+        GasMix mix = new GasMix(params);
+        int[] calculatedGases = mix.getMix();
+        topMixNeededField.setText(String.valueOf(calculatedGases[0]));
+        heliumNeededField.setText(String.valueOf(calculatedGases[1]));
+        oxygenNeededField.setText(String.valueOf(calculatedGases[2]));
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -462,23 +485,23 @@ public class CalcFrame extends javax.swing.JFrame {
         // VALIDATE PERCENTAGE
     }//GEN-LAST:event_targetHeliumFieldKeyReleased
 
-    private void topMixOxygenFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_topMixOxygenFieldKeyReleased
+    private void cylinderSizeFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cylinderSizeFieldKeyReleased
         // TODO add your handling code here:
         // VALIDATE PRESSURE
-    }//GEN-LAST:event_topMixOxygenFieldKeyReleased
+    }//GEN-LAST:event_cylinderSizeFieldKeyReleased
+
+    private void cylinderSizeFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cylinderSizeFieldFocusLost
+        // TODO add your handling code here:
+        // VALIDATE PERCENTAGE
+    }//GEN-LAST:event_cylinderSizeFieldFocusLost
 
     private void topMixOxygenFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_topMixOxygenFieldFocusLost
         // TODO add your handling code here:
-        // VALIDATE PERCENTAGE
     }//GEN-LAST:event_topMixOxygenFieldFocusLost
 
-    private void topMixOxygenField1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_topMixOxygenField1FocusLost
+    private void topMixOxygenFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_topMixOxygenFieldKeyReleased
         // TODO add your handling code here:
-    }//GEN-LAST:event_topMixOxygenField1FocusLost
-
-    private void topMixOxygenField1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_topMixOxygenField1KeyReleased
-        // TODO add your handling code here:
-    }//GEN-LAST:event_topMixOxygenField1KeyReleased
+    }//GEN-LAST:event_topMixOxygenFieldKeyReleased
 
     /**
      * @param args the command line arguments
@@ -523,6 +546,7 @@ public class CalcFrame extends javax.swing.JFrame {
     private javax.swing.JPanel currentMixPanel4;
     private javax.swing.JTextField currentOxygenField;
     private javax.swing.JTextField currentPressureField;
+    private javax.swing.JTextField cylinderSizeField;
     private javax.swing.JPanel desiredMixPanel;
     private javax.swing.JTextField errorFieldTop;
     private javax.swing.JTextField errorFieldTop1;
@@ -566,6 +590,5 @@ public class CalcFrame extends javax.swing.JFrame {
     private javax.swing.JTextField targetPressureField;
     private javax.swing.JTextField topMixNeededField;
     private javax.swing.JTextField topMixOxygenField;
-    private javax.swing.JTextField topMixOxygenField1;
     // End of variables declaration//GEN-END:variables
 }
