@@ -64,8 +64,6 @@ public class CalcFrame extends javax.swing.JFrame {
         jSeparator1 = new javax.swing.JSeparator();
         jButton1 = new javax.swing.JButton();
         errorPanel = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        errorOutputArea = new javax.swing.JTextArea();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -78,12 +76,18 @@ public class CalcFrame extends javax.swing.JFrame {
         jLabel13.setText("jLabel13");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(484, 422));
+        setMinimumSize(new java.awt.Dimension(500, 510));
+        setPreferredSize(new java.awt.Dimension(500, 510));
+        setResizable(false);
+        setSize(new java.awt.Dimension(500, 510));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         currentMixPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Current gas", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 12))); // NOI18N
         currentMixPanel.setMinimumSize(new java.awt.Dimension(227, 148));
+        currentMixPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         currentPressureField.setText("0");
+        currentPressureField.setPreferredSize(new java.awt.Dimension(54, 22));
         currentPressureField.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 currentPressureFieldFocusLost(evt);
@@ -94,11 +98,14 @@ public class CalcFrame extends javax.swing.JFrame {
                 currentPressureFieldKeyReleased(evt);
             }
         });
+        currentMixPanel.add(currentPressureField, new org.netbeans.lib.awtextra.AbsoluteConstraints(129, 24, 54, 22));
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jLabel1.setText("Pressure");
+        currentMixPanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(56, 27, 67, -1));
 
         jLabel2.setText("bar");
+        currentMixPanel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(199, 27, -1, -1));
 
         currentOxygenField.setText("21");
         currentOxygenField.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -111,13 +118,17 @@ public class CalcFrame extends javax.swing.JFrame {
                 currentOxygenFieldKeyReleased(evt);
             }
         });
+        currentMixPanel.add(currentOxygenField, new org.netbeans.lib.awtextra.AbsoluteConstraints(129, 52, 54, 22));
 
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jLabel3.setText("Oxygen");
+        currentMixPanel.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(56, 55, 67, -1));
 
         jLabel4.setText("%");
+        currentMixPanel.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(199, 55, 17, -1));
 
         jLabel7.setText("%");
+        currentMixPanel.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(199, 83, 17, -1));
 
         currentHeliumField.setText("35");
         currentHeliumField.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -135,63 +146,18 @@ public class CalcFrame extends javax.swing.JFrame {
                 currentHeliumFieldKeyReleased(evt);
             }
         });
+        currentMixPanel.add(currentHeliumField, new org.netbeans.lib.awtextra.AbsoluteConstraints(129, 80, 54, 22));
 
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jLabel8.setText("Helium");
+        currentMixPanel.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(56, 83, 67, -1));
 
-        javax.swing.GroupLayout currentMixPanelLayout = new javax.swing.GroupLayout(currentMixPanel);
-        currentMixPanel.setLayout(currentMixPanelLayout);
-        currentMixPanelLayout.setHorizontalGroup(
-            currentMixPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, currentMixPanelLayout.createSequentialGroup()
-                .addContainerGap(51, Short.MAX_VALUE)
-                .addGroup(currentMixPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(currentMixPanelLayout.createSequentialGroup()
-                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(currentHeliumField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(currentMixPanelLayout.createSequentialGroup()
-                        .addGroup(currentMixPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(currentMixPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(currentMixPanelLayout.createSequentialGroup()
-                                .addComponent(currentOxygenField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(currentMixPanelLayout.createSequentialGroup()
-                                .addComponent(currentPressureField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel2)))))
-                .addContainerGap())
-        );
-        currentMixPanelLayout.setVerticalGroup(
-            currentMixPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(currentMixPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(currentMixPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(currentPressureField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(currentMixPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(currentOxygenField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(currentMixPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(currentHeliumField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel8)
-                    .addComponent(jLabel7))
-                .addContainerGap(41, Short.MAX_VALUE))
-        );
+        getContentPane().add(currentMixPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, 230, 120));
 
         desiredMixPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Target gas", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 12))); // NOI18N
         desiredMixPanel.setMaximumSize(new java.awt.Dimension(227, 148));
         desiredMixPanel.setMinimumSize(new java.awt.Dimension(227, 148));
+        desiredMixPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         targetPressureField.setText("220");
         targetPressureField.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -204,11 +170,14 @@ public class CalcFrame extends javax.swing.JFrame {
                 targetPressureFieldKeyReleased(evt);
             }
         });
+        desiredMixPanel.add(targetPressureField, new org.netbeans.lib.awtextra.AbsoluteConstraints(129, 24, 54, 22));
 
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jLabel5.setText("Pressure");
+        desiredMixPanel.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(56, 27, 67, -1));
 
         jLabel6.setText("bar");
+        desiredMixPanel.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(199, 27, -1, -1));
 
         targetOxygenField.setText("21");
         targetOxygenField.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -221,13 +190,17 @@ public class CalcFrame extends javax.swing.JFrame {
                 targetOxygenFieldKeyReleased(evt);
             }
         });
+        desiredMixPanel.add(targetOxygenField, new org.netbeans.lib.awtextra.AbsoluteConstraints(129, 52, -1, -1));
 
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jLabel9.setText("Oxygen");
+        desiredMixPanel.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(56, 55, 67, -1));
 
         jLabel10.setText("%");
+        desiredMixPanel.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(199, 55, 17, -1));
 
         jLabel11.setText("%");
+        desiredMixPanel.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(199, 83, 17, -1));
 
         targetHeliumField.setText("35");
         targetHeliumField.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -245,64 +218,19 @@ public class CalcFrame extends javax.swing.JFrame {
                 targetHeliumFieldKeyReleased(evt);
             }
         });
+        desiredMixPanel.add(targetHeliumField, new org.netbeans.lib.awtextra.AbsoluteConstraints(129, 80, -1, -1));
 
         jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jLabel12.setText("Helium");
+        desiredMixPanel.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(56, 83, 67, -1));
 
-        javax.swing.GroupLayout desiredMixPanelLayout = new javax.swing.GroupLayout(desiredMixPanel);
-        desiredMixPanel.setLayout(desiredMixPanelLayout);
-        desiredMixPanelLayout.setHorizontalGroup(
-            desiredMixPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, desiredMixPanelLayout.createSequentialGroup()
-                .addContainerGap(51, Short.MAX_VALUE)
-                .addGroup(desiredMixPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(desiredMixPanelLayout.createSequentialGroup()
-                        .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(targetHeliumField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(desiredMixPanelLayout.createSequentialGroup()
-                        .addGroup(desiredMixPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(desiredMixPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(desiredMixPanelLayout.createSequentialGroup()
-                                .addComponent(targetOxygenField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(desiredMixPanelLayout.createSequentialGroup()
-                                .addComponent(targetPressureField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel6)))))
-                .addContainerGap())
-        );
-        desiredMixPanelLayout.setVerticalGroup(
-            desiredMixPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(desiredMixPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(desiredMixPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(targetPressureField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel6))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(desiredMixPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(targetOxygenField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel9)
-                    .addComponent(jLabel10))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(desiredMixPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(targetHeliumField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel12)
-                    .addComponent(jLabel11))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        getContentPane().add(desiredMixPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(251, 6, 230, 120));
 
         currentMixPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Top-up mix", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 12))); // NOI18N
         currentMixPanel2.setMaximumSize(new java.awt.Dimension(227, 64));
         currentMixPanel2.setMinimumSize(new java.awt.Dimension(227, 64));
         currentMixPanel2.setPreferredSize(new java.awt.Dimension(227, 64));
+        currentMixPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         topMixOxygenField.setText("21");
         topMixOxygenField.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -315,114 +243,61 @@ public class CalcFrame extends javax.swing.JFrame {
                 topMixOxygenFieldKeyReleased(evt);
             }
         });
+        currentMixPanel2.add(topMixOxygenField, new org.netbeans.lib.awtextra.AbsoluteConstraints(129, 24, 54, 22));
 
         jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jLabel15.setText("Oxygen");
+        currentMixPanel2.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(56, 27, 67, -1));
 
         jLabel16.setText("%");
+        currentMixPanel2.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(199, 27, 17, -1));
 
-        javax.swing.GroupLayout currentMixPanel2Layout = new javax.swing.GroupLayout(currentMixPanel2);
-        currentMixPanel2.setLayout(currentMixPanel2Layout);
-        currentMixPanel2Layout.setHorizontalGroup(
-            currentMixPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, currentMixPanel2Layout.createSequentialGroup()
-                .addContainerGap(51, Short.MAX_VALUE)
-                .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(topMixOxygenField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-        currentMixPanel2Layout.setVerticalGroup(
-            currentMixPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(currentMixPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(currentMixPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(topMixOxygenField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel15)
-                    .addComponent(jLabel16))
-                .addContainerGap(13, Short.MAX_VALUE))
-        );
+        getContentPane().add(currentMixPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 137, -1, 63));
 
         currentMixPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Filling instructions", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 12))); // NOI18N
         currentMixPanel3.setMaximumSize(new java.awt.Dimension(227, 107));
         currentMixPanel3.setMinimumSize(new java.awt.Dimension(227, 107));
         currentMixPanel3.setPreferredSize(new java.awt.Dimension(227, 107));
+        currentMixPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         heliumNeededField.setText("0");
         heliumNeededField.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         heliumNeededField.setEnabled(false);
+        currentMixPanel3.add(heliumNeededField, new org.netbeans.lib.awtextra.AbsoluteConstraints(129, 18, 54, 22));
 
         jLabel19.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jLabel19.setText("Helium");
+        currentMixPanel3.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(56, 21, 67, -1));
 
         jLabel14.setText("bar");
+        currentMixPanel3.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(199, 21, -1, -1));
 
         jLabel17.setText("bar");
+        currentMixPanel3.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(199, 49, -1, -1));
 
         oxygenNeededField.setText("0");
         oxygenNeededField.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         oxygenNeededField.setEnabled(false);
+        currentMixPanel3.add(oxygenNeededField, new org.netbeans.lib.awtextra.AbsoluteConstraints(129, 46, 54, 22));
 
         jLabel20.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jLabel20.setText("Oxygen");
+        currentMixPanel3.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(56, 49, 67, -1));
 
         jLabel18.setText("bar");
+        currentMixPanel3.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(199, 77, -1, -1));
 
         topMixNeededField.setText("0");
         topMixNeededField.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         topMixNeededField.setEnabled(false);
+        currentMixPanel3.add(topMixNeededField, new org.netbeans.lib.awtextra.AbsoluteConstraints(129, 74, 54, 22));
 
         jLabel21.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jLabel21.setText("Top-up");
+        currentMixPanel3.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(56, 77, 67, -1));
 
-        javax.swing.GroupLayout currentMixPanel3Layout = new javax.swing.GroupLayout(currentMixPanel3);
-        currentMixPanel3.setLayout(currentMixPanel3Layout);
-        currentMixPanel3Layout.setHorizontalGroup(
-            currentMixPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(currentMixPanel3Layout.createSequentialGroup()
-                .addContainerGap(51, Short.MAX_VALUE)
-                .addGroup(currentMixPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, currentMixPanel3Layout.createSequentialGroup()
-                        .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(oxygenNeededField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel17))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, currentMixPanel3Layout.createSequentialGroup()
-                        .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(heliumNeededField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel14))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, currentMixPanel3Layout.createSequentialGroup()
-                        .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(topMixNeededField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel18)))
-                .addContainerGap())
-        );
-        currentMixPanel3Layout.setVerticalGroup(
-            currentMixPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(currentMixPanel3Layout.createSequentialGroup()
-                .addGroup(currentMixPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(heliumNeededField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel19)
-                    .addComponent(jLabel14))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(currentMixPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(oxygenNeededField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel20)
-                    .addComponent(jLabel17))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(currentMixPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(topMixNeededField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel21)
-                    .addComponent(jLabel18))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        getContentPane().add(currentMixPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 230, 120));
+        getContentPane().add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, 472, 10));
 
         jButton1.setText("calculate");
         jButton1.setMaximumSize(new java.awt.Dimension(227, 32));
@@ -433,37 +308,13 @@ public class CalcFrame extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 160, 230, 32));
 
         errorPanel.setMaximumSize(new java.awt.Dimension(227, 107));
         errorPanel.setMinimumSize(new java.awt.Dimension(227, 107));
         errorPanel.setPreferredSize(new java.awt.Dimension(227, 107));
-
-        jScrollPane1.setBorder(null);
-
-        errorOutputArea.setEditable(false);
-        errorOutputArea.setColumns(12);
-        errorOutputArea.setRows(2);
-        errorOutputArea.setText("Total gas percentage exceeds 100%");
-        errorOutputArea.setDisabledTextColor(new java.awt.Color(255, 0, 0));
-        errorOutputArea.setEnabled(false);
-        errorOutputArea.setFocusable(false);
-        errorOutputArea.setMaximumSize(new java.awt.Dimension(225, 105));
-        errorOutputArea.setMinimumSize(new java.awt.Dimension(225, 105));
-        errorOutputArea.setPreferredSize(new java.awt.Dimension(225, 105));
-        jScrollPane1.setViewportView(errorOutputArea);
-
-        javax.swing.GroupLayout errorPanelLayout = new javax.swing.GroupLayout(errorPanel);
-        errorPanel.setLayout(errorPanelLayout);
-        errorPanelLayout.setHorizontalGroup(
-            errorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(errorPanelLayout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        errorPanelLayout.setVerticalGroup(
-            errorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 107, Short.MAX_VALUE)
-        );
+        errorPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().add(errorPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(251, 246, -1, -1));
 
         jMenu1.setText("File");
 
@@ -489,51 +340,6 @@ public class CalcFrame extends javax.swing.JFrame {
         jMenuBar1.add(jMenu2);
 
         setJMenuBar(jMenuBar1);
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(currentMixPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(currentMixPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(desiredMixPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 472, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(currentMixPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(errorPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(desiredMixPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(currentMixPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(currentMixPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(currentMixPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(22, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(errorPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -580,11 +386,6 @@ public class CalcFrame extends javax.swing.JFrame {
         // VALIDATE PERCENTAGE
     }//GEN-LAST:event_targetHeliumFieldFocusLost
 
-    private void topMixOxygenFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_topMixOxygenFieldFocusLost
-        // TODO add your handling code here:
-        // VALIDATE PERCENTAGE
-    }//GEN-LAST:event_topMixOxygenFieldFocusLost
-
     private void currentPressureFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_currentPressureFieldKeyReleased
         // TODO add your handling code here:
         // VALIDATE PRESSURE
@@ -619,6 +420,11 @@ public class CalcFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         // VALIDATE PRESSURE
     }//GEN-LAST:event_topMixOxygenFieldKeyReleased
+
+    private void topMixOxygenFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_topMixOxygenFieldFocusLost
+        // TODO add your handling code here:
+        // VALIDATE PERCENTAGE
+    }//GEN-LAST:event_topMixOxygenFieldFocusLost
 
     /**
      * @param args the command line arguments
@@ -663,7 +469,6 @@ public class CalcFrame extends javax.swing.JFrame {
     private javax.swing.JTextField currentOxygenField;
     private javax.swing.JTextField currentPressureField;
     private javax.swing.JPanel desiredMixPanel;
-    private javax.swing.JTextArea errorOutputArea;
     private javax.swing.JPanel errorPanel;
     private javax.swing.JTextField heliumNeededField;
     private javax.swing.JButton jButton1;
@@ -696,7 +501,6 @@ public class CalcFrame extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTextField oxygenNeededField;
     private javax.swing.JTextField targetHeliumField;
