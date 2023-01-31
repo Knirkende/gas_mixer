@@ -84,6 +84,16 @@ public class CalcFrame extends javax.swing.JFrame {
         currentMixPanel.setMinimumSize(new java.awt.Dimension(227, 148));
 
         currentPressureField.setText("0");
+        currentPressureField.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                currentPressureFieldFocusLost(evt);
+            }
+        });
+        currentPressureField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                currentPressureFieldKeyReleased(evt);
+            }
+        });
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jLabel1.setText("Pressure");
@@ -91,6 +101,16 @@ public class CalcFrame extends javax.swing.JFrame {
         jLabel2.setText("bar");
 
         currentOxygenField.setText("21");
+        currentOxygenField.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                currentOxygenFieldFocusLost(evt);
+            }
+        });
+        currentOxygenField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                currentOxygenFieldKeyReleased(evt);
+            }
+        });
 
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jLabel3.setText("Oxygen");
@@ -100,9 +120,19 @@ public class CalcFrame extends javax.swing.JFrame {
         jLabel7.setText("%");
 
         currentHeliumField.setText("35");
+        currentHeliumField.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                currentHeliumFieldFocusLost(evt);
+            }
+        });
         currentHeliumField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 currentHeliumFieldActionPerformed(evt);
+            }
+        });
+        currentHeliumField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                currentHeliumFieldKeyReleased(evt);
             }
         });
 
@@ -164,6 +194,16 @@ public class CalcFrame extends javax.swing.JFrame {
         desiredMixPanel.setMinimumSize(new java.awt.Dimension(227, 148));
 
         targetPressureField.setText("220");
+        targetPressureField.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                targetPressureFieldFocusLost(evt);
+            }
+        });
+        targetPressureField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                targetPressureFieldKeyReleased(evt);
+            }
+        });
 
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jLabel5.setText("Pressure");
@@ -171,6 +211,16 @@ public class CalcFrame extends javax.swing.JFrame {
         jLabel6.setText("bar");
 
         targetOxygenField.setText("21");
+        targetOxygenField.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                targetOxygenFieldFocusLost(evt);
+            }
+        });
+        targetOxygenField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                targetOxygenFieldKeyReleased(evt);
+            }
+        });
 
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jLabel9.setText("Oxygen");
@@ -180,9 +230,19 @@ public class CalcFrame extends javax.swing.JFrame {
         jLabel11.setText("%");
 
         targetHeliumField.setText("35");
+        targetHeliumField.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                targetHeliumFieldFocusLost(evt);
+            }
+        });
         targetHeliumField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 targetHeliumFieldActionPerformed(evt);
+            }
+        });
+        targetHeliumField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                targetHeliumFieldKeyReleased(evt);
             }
         });
 
@@ -245,6 +305,16 @@ public class CalcFrame extends javax.swing.JFrame {
         currentMixPanel2.setPreferredSize(new java.awt.Dimension(227, 64));
 
         topMixOxygenField.setText("21");
+        topMixOxygenField.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                topMixOxygenFieldFocusLost(evt);
+            }
+        });
+        topMixOxygenField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                topMixOxygenFieldKeyReleased(evt);
+            }
+        });
 
         jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jLabel15.setText("Oxygen");
@@ -479,6 +549,76 @@ public class CalcFrame extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void currentPressureFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_currentPressureFieldFocusLost
+        // TODO add your handling code here:
+        // VALIDATE PRESSURE
+    }//GEN-LAST:event_currentPressureFieldFocusLost
+
+    private void currentOxygenFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_currentOxygenFieldFocusLost
+        // TODO add your handling code here:
+        // VALIDATE PERCENTAGE
+    }//GEN-LAST:event_currentOxygenFieldFocusLost
+
+    private void currentHeliumFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_currentHeliumFieldFocusLost
+        // TODO add your handling code here:
+        // VALIDATE PERCENTAGE
+    }//GEN-LAST:event_currentHeliumFieldFocusLost
+
+    private void targetPressureFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_targetPressureFieldFocusLost
+        // TODO add your handling code here:
+        // VALIDATE PRESSURE
+    }//GEN-LAST:event_targetPressureFieldFocusLost
+
+    private void targetOxygenFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_targetOxygenFieldFocusLost
+        // TODO add your handling code here:
+        // VALIDATE PERCENTAGE
+    }//GEN-LAST:event_targetOxygenFieldFocusLost
+
+    private void targetHeliumFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_targetHeliumFieldFocusLost
+        // TODO add your handling code here:
+        // VALIDATE PERCENTAGE
+    }//GEN-LAST:event_targetHeliumFieldFocusLost
+
+    private void topMixOxygenFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_topMixOxygenFieldFocusLost
+        // TODO add your handling code here:
+        // VALIDATE PERCENTAGE
+    }//GEN-LAST:event_topMixOxygenFieldFocusLost
+
+    private void currentPressureFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_currentPressureFieldKeyReleased
+        // TODO add your handling code here:
+        // VALIDATE PRESSURE
+    }//GEN-LAST:event_currentPressureFieldKeyReleased
+
+    private void currentOxygenFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_currentOxygenFieldKeyReleased
+        // TODO add your handling code here:
+        // VALIDATE PERCENTAGE
+    }//GEN-LAST:event_currentOxygenFieldKeyReleased
+
+    private void currentHeliumFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_currentHeliumFieldKeyReleased
+        // TODO add your handling code here:
+        // VALIDATE PERCENTAGE
+    }//GEN-LAST:event_currentHeliumFieldKeyReleased
+
+    private void targetPressureFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_targetPressureFieldKeyReleased
+        // TODO add your handling code here:
+        // VALIDATE PRESSURE
+    }//GEN-LAST:event_targetPressureFieldKeyReleased
+
+    private void targetOxygenFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_targetOxygenFieldKeyReleased
+        // TODO add your handling code here:
+        // VALIDATE PERCENTAGE
+    }//GEN-LAST:event_targetOxygenFieldKeyReleased
+
+    private void targetHeliumFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_targetHeliumFieldKeyReleased
+        // TODO add your handling code here:
+        // VALIDATE PERCENTAGE
+    }//GEN-LAST:event_targetHeliumFieldKeyReleased
+
+    private void topMixOxygenFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_topMixOxygenFieldKeyReleased
+        // TODO add your handling code here:
+        // VALIDATE PRESSURE
+    }//GEN-LAST:event_topMixOxygenFieldKeyReleased
 
     /**
      * @param args the command line arguments
