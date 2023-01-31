@@ -49,7 +49,6 @@ public class CalcFrame extends javax.swing.JFrame {
         jLabel12 = new javax.swing.JLabel();
         currentMixPanel2 = new javax.swing.JPanel();
         topMixOxygenField = new javax.swing.JTextField();
-        jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         currentMixPanel3 = new javax.swing.JPanel();
         heliumNeededField = new javax.swing.JTextField();
@@ -64,6 +63,12 @@ public class CalcFrame extends javax.swing.JFrame {
         jSeparator1 = new javax.swing.JSeparator();
         jButton1 = new javax.swing.JButton();
         errorPanel = new javax.swing.JPanel();
+        errorFieldTop = new javax.swing.JTextField();
+        errorFieldTop1 = new javax.swing.JTextField();
+        currentMixPanel4 = new javax.swing.JPanel();
+        topMixOxygenField1 = new javax.swing.JTextField();
+        jLabel22 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -190,7 +195,7 @@ public class CalcFrame extends javax.swing.JFrame {
                 targetOxygenFieldKeyReleased(evt);
             }
         });
-        desiredMixPanel.add(targetOxygenField, new org.netbeans.lib.awtextra.AbsoluteConstraints(129, 52, -1, -1));
+        desiredMixPanel.add(targetOxygenField, new org.netbeans.lib.awtextra.AbsoluteConstraints(129, 52, 54, 22));
 
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jLabel9.setText("Oxygen");
@@ -218,7 +223,7 @@ public class CalcFrame extends javax.swing.JFrame {
                 targetHeliumFieldKeyReleased(evt);
             }
         });
-        desiredMixPanel.add(targetHeliumField, new org.netbeans.lib.awtextra.AbsoluteConstraints(129, 80, -1, -1));
+        desiredMixPanel.add(targetHeliumField, new org.netbeans.lib.awtextra.AbsoluteConstraints(129, 80, 54, 22));
 
         jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jLabel12.setText("Helium");
@@ -226,13 +231,13 @@ public class CalcFrame extends javax.swing.JFrame {
 
         getContentPane().add(desiredMixPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(251, 6, 230, 120));
 
-        currentMixPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Top-up mix", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 12))); // NOI18N
+        currentMixPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Cylinder size", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 12))); // NOI18N
         currentMixPanel2.setMaximumSize(new java.awt.Dimension(227, 64));
         currentMixPanel2.setMinimumSize(new java.awt.Dimension(227, 64));
         currentMixPanel2.setPreferredSize(new java.awt.Dimension(227, 64));
         currentMixPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        topMixOxygenField.setText("21");
+        topMixOxygenField.setText("24");
         topMixOxygenField.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 topMixOxygenFieldFocusLost(evt);
@@ -245,14 +250,10 @@ public class CalcFrame extends javax.swing.JFrame {
         });
         currentMixPanel2.add(topMixOxygenField, new org.netbeans.lib.awtextra.AbsoluteConstraints(129, 24, 54, 22));
 
-        jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        jLabel15.setText("Oxygen");
-        currentMixPanel2.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(56, 27, 67, -1));
-
-        jLabel16.setText("%");
+        jLabel16.setText("l");
         currentMixPanel2.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(199, 27, 17, -1));
 
-        getContentPane().add(currentMixPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 137, -1, 63));
+        getContentPane().add(currentMixPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 137, -1, 63));
 
         currentMixPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Filling instructions", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 12))); // NOI18N
         currentMixPanel3.setMaximumSize(new java.awt.Dimension(227, 107));
@@ -296,7 +297,7 @@ public class CalcFrame extends javax.swing.JFrame {
         jLabel21.setText("Top-up");
         currentMixPanel3.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(56, 77, 67, -1));
 
-        getContentPane().add(currentMixPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 230, 120));
+        getContentPane().add(currentMixPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 240, 230, 120));
         getContentPane().add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, 472, 10));
 
         jButton1.setText("calculate");
@@ -308,13 +309,54 @@ public class CalcFrame extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 160, 230, 32));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 380, 230, 32));
 
         errorPanel.setMaximumSize(new java.awt.Dimension(227, 107));
         errorPanel.setMinimumSize(new java.awt.Dimension(227, 107));
         errorPanel.setPreferredSize(new java.awt.Dimension(227, 107));
         errorPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        getContentPane().add(errorPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(251, 246, -1, -1));
+
+        errorFieldTop.setEditable(false);
+        errorFieldTop.setForeground(new java.awt.Color(255, 0, 0));
+        errorFieldTop.setText("error2");
+        errorFieldTop.setBorder(null);
+        errorPanel.add(errorFieldTop, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 200, -1));
+
+        errorFieldTop1.setEditable(false);
+        errorFieldTop1.setForeground(new java.awt.Color(255, 0, 0));
+        errorFieldTop1.setText("error");
+        errorFieldTop1.setBorder(null);
+        errorPanel.add(errorFieldTop1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 200, -1));
+
+        getContentPane().add(errorPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 250, -1, -1));
+
+        currentMixPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Top-up mix", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 12))); // NOI18N
+        currentMixPanel4.setMaximumSize(new java.awt.Dimension(227, 64));
+        currentMixPanel4.setMinimumSize(new java.awt.Dimension(227, 64));
+        currentMixPanel4.setPreferredSize(new java.awt.Dimension(227, 64));
+        currentMixPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        topMixOxygenField1.setText("21");
+        topMixOxygenField1.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                topMixOxygenField1FocusLost(evt);
+            }
+        });
+        topMixOxygenField1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                topMixOxygenField1KeyReleased(evt);
+            }
+        });
+        currentMixPanel4.add(topMixOxygenField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(129, 24, 54, 22));
+
+        jLabel22.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        jLabel22.setText("Oxygen");
+        currentMixPanel4.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(56, 27, 67, -1));
+
+        jLabel23.setText("%");
+        currentMixPanel4.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(199, 27, 17, -1));
+
+        getContentPane().add(currentMixPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 137, 230, 63));
 
         jMenu1.setText("File");
 
@@ -354,6 +396,10 @@ public class CalcFrame extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        // collect data from all fields
+        // process data using GasMix class
+        // display result
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void currentPressureFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_currentPressureFieldFocusLost
@@ -426,6 +472,14 @@ public class CalcFrame extends javax.swing.JFrame {
         // VALIDATE PERCENTAGE
     }//GEN-LAST:event_topMixOxygenFieldFocusLost
 
+    private void topMixOxygenField1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_topMixOxygenField1FocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_topMixOxygenField1FocusLost
+
+    private void topMixOxygenField1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_topMixOxygenField1KeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_topMixOxygenField1KeyReleased
+
     /**
      * @param args the command line arguments
      */
@@ -466,9 +520,12 @@ public class CalcFrame extends javax.swing.JFrame {
     private javax.swing.JPanel currentMixPanel;
     private javax.swing.JPanel currentMixPanel2;
     private javax.swing.JPanel currentMixPanel3;
+    private javax.swing.JPanel currentMixPanel4;
     private javax.swing.JTextField currentOxygenField;
     private javax.swing.JTextField currentPressureField;
     private javax.swing.JPanel desiredMixPanel;
+    private javax.swing.JTextField errorFieldTop;
+    private javax.swing.JTextField errorFieldTop1;
     private javax.swing.JPanel errorPanel;
     private javax.swing.JTextField heliumNeededField;
     private javax.swing.JButton jButton1;
@@ -478,7 +535,6 @@ public class CalcFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
@@ -486,6 +542,8 @@ public class CalcFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -508,5 +566,6 @@ public class CalcFrame extends javax.swing.JFrame {
     private javax.swing.JTextField targetPressureField;
     private javax.swing.JTextField topMixNeededField;
     private javax.swing.JTextField topMixOxygenField;
+    private javax.swing.JTextField topMixOxygenField1;
     // End of variables declaration//GEN-END:variables
 }
