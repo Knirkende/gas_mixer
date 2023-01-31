@@ -4,6 +4,8 @@
  */
 package io.heimen.gas_mixer;
 
+import java.awt.*;
+
 /**
  *
  * @author Ole
@@ -63,8 +65,8 @@ public class CalcFrame extends javax.swing.JFrame {
         jSeparator1 = new javax.swing.JSeparator();
         jButton1 = new javax.swing.JButton();
         errorPanel = new javax.swing.JPanel();
-        errorFieldTop = new javax.swing.JTextField();
-        errorFieldTop1 = new javax.swing.JTextField();
+        errorFieldBottom = new javax.swing.JLabel();
+        errorFieldTop1 = new javax.swing.JLabel();
         currentMixPanel4 = new javax.swing.JPanel();
         topMixOxygenField = new javax.swing.JTextField();
         jLabel22 = new javax.swing.JLabel();
@@ -316,17 +318,13 @@ public class CalcFrame extends javax.swing.JFrame {
         errorPanel.setPreferredSize(new java.awt.Dimension(227, 107));
         errorPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        errorFieldTop.setEditable(false);
-        errorFieldTop.setForeground(new java.awt.Color(255, 0, 0));
-        errorFieldTop.setText("error2");
-        errorFieldTop.setBorder(null);
-        errorPanel.add(errorFieldTop, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 200, -1));
+        errorFieldBottom.setForeground(new java.awt.Color(255, 0, 0));
+        errorFieldBottom.setText("different error");
+        errorPanel.add(errorFieldBottom, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 190, -1));
 
-        errorFieldTop1.setEditable(false);
-        errorFieldTop1.setForeground(new java.awt.Color(255, 0, 0));
-        errorFieldTop1.setText("error");
-        errorFieldTop1.setBorder(null);
-        errorPanel.add(errorFieldTop1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 200, -1));
+        errorFieldTop1.setForeground(new java.awt.Color(255, 0, 51));
+        errorFieldTop1.setText("some error");
+        errorPanel.add(errorFieldTop1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 190, -1));
 
         getContentPane().add(errorPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 250, -1, -1));
 
@@ -428,6 +426,9 @@ public class CalcFrame extends javax.swing.JFrame {
     private void currentPressureFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_currentPressureFieldFocusLost
         // TODO add your handling code here:
         // VALIDATE PRESSURE
+        errorFieldTop1.setText("Lorem error");
+        currentPressureField.setForeground(Color.RED);
+        jButton1.setEnabled(false);
     }//GEN-LAST:event_currentPressureFieldFocusLost
 
     private void currentOxygenFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_currentOxygenFieldFocusLost
@@ -548,8 +549,8 @@ public class CalcFrame extends javax.swing.JFrame {
     private javax.swing.JTextField currentPressureField;
     private javax.swing.JTextField cylinderSizeField;
     private javax.swing.JPanel desiredMixPanel;
-    private javax.swing.JTextField errorFieldTop;
-    private javax.swing.JTextField errorFieldTop1;
+    private javax.swing.JLabel errorFieldBottom;
+    private javax.swing.JLabel errorFieldTop1;
     private javax.swing.JPanel errorPanel;
     private javax.swing.JTextField heliumNeededField;
     private javax.swing.JButton jButton1;

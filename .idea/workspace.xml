@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6c42d087-08e3-4e2c-8feb-455880735ae7" name="Changes" comment="" />
+    <list default="true" id="6c42d087-08e3-4e2c-8feb-455880735ae7" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/heimen/gas_mixer/CalcFrame.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/heimen/gas_mixer/CalcFrame.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/heimen/gas_mixer/CalcFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/heimen/gas_mixer/CalcFrame.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
