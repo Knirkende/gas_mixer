@@ -6,9 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="6c42d087-08e3-4e2c-8feb-455880735ae7" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/heimen/gas_mixer/Validator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/heimen/gas_mixer/Validator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/io/heimen/gas_mixer/AppTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/io/heimen/gas_mixer/AppTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/heimen/gas_mixer/CalcFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/heimen/gas_mixer/CalcFrame.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,6 +65,6 @@
     <SUITE FILE_PATH="coverage/gas_mixer$CalculatorTests.ic" NAME="CalculatorTests Coverage Results" MODIFIED="1674921374250" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>io.heimen.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/gas_mixer$GasMixTests_and_1_more.ic" NAME="GasMixTests and 1 more Coverage Results" MODIFIED="1675242246762" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/gas_mixer$GasMixTests_and_1_more.ic" NAME="GasMixTests and 1 more Coverage Results" MODIFIED="1675242324218" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>

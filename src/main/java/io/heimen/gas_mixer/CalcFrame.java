@@ -11,7 +11,7 @@ import java.awt.*;
  * @author Ole
  */
 public class CalcFrame extends javax.swing.JFrame {
-
+    private static Validator validator = new Validator();
     /**
      * Creates new form CalcFrame
      */
@@ -384,6 +384,69 @@ public class CalcFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void setErrorState(
+            javax.swing.JTextField textField,
+            javax.swing.JLabel errorLabel,
+            String errorMessage,
+            boolean state) {
+        if (state) {
+            textField.setForeground(Color.RED);
+            jButton1.setEnabled(false);
+            errorLabel.setText(errorMessage);
+        } else {
+            textField.setForeground(Color.BLACK);
+            errorLabel.setText("");
+        }
+    }
+
+    private boolean validateAllFields() {
+
+        javax.swing.JTextField[] allFields = {
+                currentPressureField,
+                targetPressureField,
+                currentOxygenField,
+                currentHeliumField,
+                cylinderSizeField,
+                targetHeliumField,
+                targetOxygenField,
+                topMixOxygenField
+        };
+        // check that all fields contain numeric values
+        for (javax.swing.JTextField field : allFields) {
+            boolean fieldIsValid = validator.validateFormat(field.getText());
+            setErrorState(field, errorFieldTop1, validator.FORMAT_ERROR, !fieldIsValid);
+            if (!fieldIsValid) {
+                return false;
+            }
+        }
+        // check that target pressure field is non-zero
+        if (!validator.validateFormatNonZero(targetPressureField.getText())) {
+            setErrorState(targetPressureField, errorFieldTop1, validator.FORMAT_ERROR_NON_ZERO, true);
+            return false;
+        }
+        // check that cylinder size field is non-zero
+        if (!validator.validateFormatNonZero(cylinderSizeField.getText())) {
+            setErrorState(cylinderSizeField, errorFieldTop1, validator.FORMAT_ERROR_NON_ZERO, true);
+            return false;
+        }
+        // check percentage fields
+        if (!validator.validatePercentage(currentHeliumField.getText(), currentOxygenField.getText())) {
+            setErrorState(currentHeliumField, errorFieldBottom, validator.PERCENTAGE_ERROR, true);
+            setErrorState(currentOxygenField, errorFieldBottom, validator.PERCENTAGE_ERROR, true);
+            return false;
+        }
+        if (!validator.validatePercentage(targetHeliumField.getText(), targetOxygenField.getText())) {
+            setErrorState(targetHeliumField, errorFieldBottom, validator.PERCENTAGE_ERROR, true);
+            setErrorState(targetOxygenField, errorFieldBottom, validator.PERCENTAGE_ERROR, true);
+            return false;
+        }
+        jButton1.setEnabled(true);
+        errorFieldTop1.setText("");
+        errorFieldBottom.setText("");
+        return true;
+
+    }
+
     private void currentHeliumFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_currentHeliumFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_currentHeliumFieldActionPerformed
@@ -426,9 +489,7 @@ public class CalcFrame extends javax.swing.JFrame {
     private void currentPressureFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_currentPressureFieldFocusLost
         // TODO add your handling code here:
         // VALIDATE PRESSURE
-        errorFieldTop1.setText("Lorem error");
-        currentPressureField.setForeground(Color.RED);
-        jButton1.setEnabled(false);
+
     }//GEN-LAST:event_currentPressureFieldFocusLost
 
     private void currentOxygenFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_currentOxygenFieldFocusLost
@@ -457,38 +518,31 @@ public class CalcFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_targetHeliumFieldFocusLost
 
     private void currentPressureFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_currentPressureFieldKeyReleased
-        // TODO add your handling code here:
-        // VALIDATE PRESSURE
+        validateAllFields();
     }//GEN-LAST:event_currentPressureFieldKeyReleased
 
     private void currentOxygenFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_currentOxygenFieldKeyReleased
-        // TODO add your handling code here:
-        // VALIDATE PERCENTAGE
+        validateAllFields();
     }//GEN-LAST:event_currentOxygenFieldKeyReleased
 
     private void currentHeliumFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_currentHeliumFieldKeyReleased
-        // TODO add your handling code here:
-        // VALIDATE PERCENTAGE
+        validateAllFields();
     }//GEN-LAST:event_currentHeliumFieldKeyReleased
 
     private void targetPressureFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_targetPressureFieldKeyReleased
-        // TODO add your handling code here:
-        // VALIDATE PRESSURE
+        validateAllFields();
     }//GEN-LAST:event_targetPressureFieldKeyReleased
 
     private void targetOxygenFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_targetOxygenFieldKeyReleased
-        // TODO add your handling code here:
-        // VALIDATE PERCENTAGE
+        validateAllFields();
     }//GEN-LAST:event_targetOxygenFieldKeyReleased
 
     private void targetHeliumFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_targetHeliumFieldKeyReleased
-        // TODO add your handling code here:
-        // VALIDATE PERCENTAGE
+        validateAllFields();
     }//GEN-LAST:event_targetHeliumFieldKeyReleased
 
     private void cylinderSizeFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cylinderSizeFieldKeyReleased
-        // TODO add your handling code here:
-        // VALIDATE PRESSURE
+        validateAllFields();
     }//GEN-LAST:event_cylinderSizeFieldKeyReleased
 
     private void cylinderSizeFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cylinderSizeFieldFocusLost
@@ -501,7 +555,7 @@ public class CalcFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_topMixOxygenFieldFocusLost
 
     private void topMixOxygenFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_topMixOxygenFieldKeyReleased
-        // TODO add your handling code here:
+        validateAllFields();
     }//GEN-LAST:event_topMixOxygenFieldKeyReleased
 
     /**
