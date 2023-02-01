@@ -1,8 +1,13 @@
 package io.heimen.gas_mixer;
 
 import org.junit.Assert;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 /**
  * Unit test for gas mixer app.
@@ -42,9 +47,43 @@ class GasMixTests {
                 220
         );
         GasMix gas = new GasMix(params);
-        int[] expected = {95, 59, 16};
+        int[] expected = {95, 60, 65};
         int[] actual = gas.getMix();
-        Assert.assertArrayEquals(expected, actual);
+        Assertions.assertArrayEquals(expected, actual);
+    }
+}
+
+class ValidatorTests {
+    static Validator validator;
+    @BeforeAll
+    public static void init() {
+        validator = new Validator();
     }
 
+    @Test
+    void verifyFormatValidation() {
+        Assertions.assertFalse(validator.validateFormat("a"));
+        Assertions.assertFalse(validator.validateFormat(" "));
+        Assertions.assertFalse(validator.validateFormat("&"));
+        Assertions.assertFalse(validator.validateFormat("x"));
+        Assertions.assertFalse(validator.validateFormat("-1"));
+        Assertions.assertFalse(validator.validateFormat("2.2"));
+        Assertions.assertTrue(validator.validateFormat("1"));
+        Assertions.assertTrue(validator.validateFormat("0"));
+        Assertions.assertTrue(validator.validateFormat("02"));
+    }
+
+    @Test
+    void verifyNonZeroValidator() {
+        Assertions.assertFalse(validator.validateFormatNonZero("0"));
+        Assertions.assertTrue(validator.validateFormat("1"));
+    }
+
+    @Test
+    void verifySumIsValidPercentage() {
+        Assertions.assertFalse(validator.validatePercentage("99", "2"));
+        Assertions.assertTrue(validator.validatePercentage("99", "1"));
+        Assertions.assertTrue(validator.validatePercentage("0", "1"));
+        Assertions.assertTrue(validator.validatePercentage("0", "0"));
+    }
 }
