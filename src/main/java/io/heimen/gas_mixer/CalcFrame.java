@@ -397,7 +397,13 @@ public class CalcFrame extends javax.swing.JFrame {
         }
     }
 
+    private void resetInstructions() {
+        topMixNeededField.setText("0");
+        heliumNeededField.setText("0");
+        oxygenNeededField.setText("0");
+    }
     private boolean validateAllFields() {
+
 
         javax.swing.JTextField[] allFields = {
                 currentPressureField,
@@ -521,30 +527,37 @@ public class CalcFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_targetHeliumFieldFocusLost
 
     private void currentPressureFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_currentPressureFieldKeyReleased
+        resetInstructions();
         validateAllFields();
     }//GEN-LAST:event_currentPressureFieldKeyReleased
 
     private void currentOxygenFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_currentOxygenFieldKeyReleased
+        resetInstructions();
         validateAllFields();
     }//GEN-LAST:event_currentOxygenFieldKeyReleased
 
     private void currentHeliumFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_currentHeliumFieldKeyReleased
+        resetInstructions();
         validateAllFields();
     }//GEN-LAST:event_currentHeliumFieldKeyReleased
 
     private void targetPressureFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_targetPressureFieldKeyReleased
+        resetInstructions();
         validateAllFields();
     }//GEN-LAST:event_targetPressureFieldKeyReleased
 
     private void targetOxygenFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_targetOxygenFieldKeyReleased
+        resetInstructions();
         validateAllFields();
     }//GEN-LAST:event_targetOxygenFieldKeyReleased
 
     private void targetHeliumFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_targetHeliumFieldKeyReleased
+        resetInstructions();
         validateAllFields();
     }//GEN-LAST:event_targetHeliumFieldKeyReleased
 
     private void cylinderSizeFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cylinderSizeFieldKeyReleased
+        resetInstructions();
         validateAllFields();
     }//GEN-LAST:event_cylinderSizeFieldKeyReleased
 
@@ -558,6 +571,7 @@ public class CalcFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_topMixOxygenFieldFocusLost
 
     private void topMixOxygenFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_topMixOxygenFieldKeyReleased
+        resetInstructions();
         validateAllFields();
     }//GEN-LAST:event_topMixOxygenFieldKeyReleased
 

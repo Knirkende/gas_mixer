@@ -34,6 +34,25 @@ class GasMixTests {
     }
 
     @Test
+    @DisplayName("21/35, mix already correct = {0, 0, 0}")
+    void calculatesStandardGasNoneNeeded() {
+        GasParameter params = new GasParameter(
+                24,
+                100,
+                21,
+                35,
+                21,
+                21,
+                35,
+                100
+        );
+        GasMix gas = new GasMix(params);
+        int[] expected = {0, 0, 0};
+        int[] actual = gas.getMix();
+        Assert.assertArrayEquals(expected, actual);
+    }
+
+    @Test
     @DisplayName("21/35, non-empty cylinder = {95, 59, 16}")
     void calculatesStandardGasNonEmptyCylinder() {
         GasParameter params = new GasParameter(
