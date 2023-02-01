@@ -319,11 +319,9 @@ public class CalcFrame extends javax.swing.JFrame {
         errorPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         errorFieldBottom.setForeground(new java.awt.Color(255, 0, 0));
-        errorFieldBottom.setText("different error");
         errorPanel.add(errorFieldBottom, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 190, -1));
 
         errorFieldTop1.setForeground(new java.awt.Color(255, 0, 51));
-        errorFieldTop1.setText("some error");
         errorPanel.add(errorFieldTop1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 190, -1));
 
         getContentPane().add(errorPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 250, -1, -1));
@@ -427,6 +425,11 @@ public class CalcFrame extends javax.swing.JFrame {
         // check that cylinder size field is non-zero
         if (!validator.validateFormatNonZero(cylinderSizeField.getText())) {
             setErrorState(cylinderSizeField, errorFieldTop1, validator.FORMAT_ERROR_NON_ZERO, true);
+            return false;
+        }
+        // check that top mix oxygen field is non-zero
+        if (!validator.validateFormatNonZero(topMixOxygenField.getText())) {
+            setErrorState(topMixOxygenField, errorFieldTop1, validator.FORMAT_ERROR_NON_ZERO, true);
             return false;
         }
         // check percentage fields
